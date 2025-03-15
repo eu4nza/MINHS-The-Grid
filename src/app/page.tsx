@@ -109,7 +109,7 @@ export default function home() {
         className="w-full h-screen bg-cover bg-center"
         style={{
           backgroundImage: "url('/assets/background/variant1_bg.webp')",
-          backgroundColor: "rgba(255, 255, 255, 0.50)", // Transparent overlay
+          backgroundColor: "rgba(0, 0, 0, 0.50)", // Transparent overlay
           backgroundBlendMode: "overlay",
         }}
       >
