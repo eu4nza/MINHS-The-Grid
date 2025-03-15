@@ -1,28 +1,27 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
   const router = useRouter();
 
-  // Function to scroll to section smoothly
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false); // Close mobile menu
+      setIsOpen(false);
     }
   };
 
-  // Function to update route and scroll
   const handleNavigation = (id: string) => {
     const newUrl = `/#${id}`;
-
     if (pathname !== "/") {
       router.push(newUrl);
     } else {
@@ -37,6 +36,24 @@ export function Header() {
       scrollToSection(id);
     }
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md md:shadow-lg px-6 md:px-10 py-3 z-50">
@@ -55,7 +72,6 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex flex-row gap-6 ml-auto text-lg">
           <button
             onClick={() => handleNavigation("home")}
@@ -83,18 +99,20 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden relative z-20 cursor-pointer"
+        <motion.button
+          className="md:hidden relative"
           onClick={() => setIsOpen(!isOpen)}
+          initial={{ scale: 1 }}
+          animate={{ scale: isOpen ? 1.2 : 1 }}
+          transition={{ type: "spring", stiffness: 300 }}
         >
           {isOpen ? <X size={30} /> : <Menu size={30} />}
-        </button>
+        </motion.button>
       </div>
 
-      {/* Mobile Menu */}
       <div
-        className={`absolute left-0 w-full bg-white shadow-md flex flex-col py-4 md:hidden transition-all duration-200 ease-out transform origin-top ${
+        ref={menuRef}
+        className={`absolute left-0 w-full bg-white shadow-xl ring-1 ring-gray-300 flex flex-col py-4 md:hidden transition-all duration-200 ease-out transform origin-top ${
           isOpen
             ? "scale-y-100 opacity-100 pointer-events-auto"
             : "scale-y-95 opacity-0 pointer-events-none"
@@ -103,25 +121,25 @@ export function Header() {
       >
         <button
           onClick={() => handleNavigation("home")}
-          className="px-4 py-3 text-lg text-start hover:bg-gray-200 cursor-pointer"
+          className="px-4 py-3 text-lg text-end"
         >
           Home
         </button>
         <button
           onClick={() => handleNavigation("about")}
-          className="px-4 py-3 text-lg text-start hover:bg-gray-200 cursor-pointer"
+          className="px-4 py-3 text-lg text-end"
         >
           About
         </button>
         <button
           onClick={() => handleNavigation("team")}
-          className="px-4 py-3 text-lg text-start hover:bg-gray-200 cursor-pointer"
+          className="px-4 py-3 text-lg text-end"
         >
           Our Team
         </button>
         <button
           onClick={() => handleNavigation("resources")}
-          className="px-4 py-3 text-lg text-start hover:bg-gray-200 cursor-pointer"
+          className="px-4 py-3 text-lg text-end"
         >
           Resources
         </button>
