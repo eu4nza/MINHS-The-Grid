@@ -131,23 +131,23 @@ export default function home() {
             <DropdownMenuContent className="bg-white border-white px-4 py-4">
               <DropdownMenuGroup>
                 <DropdownMenuSub>
-                  <DropdownMenuSubTrigger className="hover:bg-gray-200 text-xl px-20 bg-white cursor-pointer">
+                  <DropdownMenuSubTrigger className="hover:bg-gray-200 text-xl px-20 bg-white cursor-pointer transition-all duration-200 ease-in-out">
                     Basic
                   </DropdownMenuSubTrigger>
                   <DropdownMenuPortal>
                     <DropdownMenuSubContent className="bg-white border-white px-4 py-4">
                       <DropdownMenuItem>
                         <Link
-                          href="/basic-proposal-template"
-                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer"
+                          href="/basic-research-proposal-template"
+                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer transition-all duration-200 ease-in-out"
                         >
                           Proposal Template
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem>
                         <Link
-                          href="/basic-full-paper-template"
-                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer"
+                          href="/completed-basic-research-template"
+                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer transition-all duration-200 ease-in-out"
                         >
                           Full Paper Template
                         </Link>
@@ -156,23 +156,23 @@ export default function home() {
                   </DropdownMenuPortal>
                 </DropdownMenuSub>
                 <DropdownMenuSub>
-                  <DropdownMenuSubTrigger className="hover:bg-gray-200 text-xl px-20 bg-white cursor-pointer">
+                  <DropdownMenuSubTrigger className="hover:bg-gray-200 text-xl px-20 bg-white cursor-pointer transition-all duration-200 ease-in-out">
                     Action
                   </DropdownMenuSubTrigger>
                   <DropdownMenuPortal>
                     <DropdownMenuSubContent className="bg-white border-white px-4 py-4">
                       <DropdownMenuItem>
                         <Link
-                          href="/action-proposal-template"
-                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer"
+                          href="/action-research-proposal-template"
+                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer transition-all duration-200 ease-in-out"
                         >
                           Proposal Template
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem>
                         <Link
-                          href="/action-full-paper-template"
-                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer"
+                          href="/completed-action-research-template"
+                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer transition-all duration-200 ease-in-out"
                         >
                           Full Paper Template
                         </Link>
@@ -195,21 +195,21 @@ export default function home() {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-white border-white px-4 py-4">
               <DropdownMenuItem
-                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer"
+                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer transition-all duration-200 ease-in-out"
                 asChild
               >
                 <p>Qualitative</p>
                 {/*<Link href="/qualitative">Qualitative</Link>*/}
               </DropdownMenuItem>
               <DropdownMenuItem
-                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer"
+                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer transition-all duration-200 ease-in-out"
                 asChild
               >
                 <p>Quantitative</p>
                 {/*<Link href="/quantitative">Quantitative</Link>*/}
               </DropdownMenuItem>
               <DropdownMenuItem
-                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer"
+                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer transition-all duration-200 ease-in-out"
                 asChild
               >
                 <p>Business Plan</p>
