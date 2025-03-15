@@ -198,19 +198,22 @@ export default function home() {
                 className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer"
                 asChild
               >
-                <Link href="/qualitative">Qualitative</Link>
+                <p>Qualitative</p>
+                {/*<Link href="/qualitative">Qualitative</Link>*/}
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer"
                 asChild
               >
-                <Link href="/quantitative">Quantitative</Link>
+                <p>Quantitative</p>
+                {/*<Link href="/quantitative">Quantitative</Link>*/}
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer"
                 asChild
               >
-                <Link href="/business-plan">Business Plan</Link>
+                <p>Business Plan</p>
+                {/*<Link href="/business-plan">Business Plan</Link>*/}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -220,7 +223,8 @@ export default function home() {
             className="hover:bg-gray-200 px-16 py-12 text-xl font-bold bg-white cursor-pointer"
             asChild
           >
-            <Link href="/documents">Documents</Link>
+            <p>Documents</p>
+            {/* <Link href="/documents">Documents</Link>*/}
           </Button>
         </div>
       </section>
