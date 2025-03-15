@@ -1,6 +1,19 @@
+import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
-export default function Home() {
+export default function home() {
   return (
     <main className="w-full h-full">
       {/* Home Section */}
@@ -95,13 +108,120 @@ export default function Home() {
         id="resources"
         className="w-full h-screen bg-cover bg-center"
         style={{
-          backgroundImage: "url('/assets/background/variant2_bg.webp')",
+          backgroundImage: "url('/assets/background/variant1_bg.webp')",
+          backgroundColor: "rgba(255, 255, 255, 0.50)", // Transparent overlay
+          backgroundBlendMode: "overlay",
         }}
       >
         <div className="py-32 px-20 flex justify-end">
           <p className="text-white text-6xl font-bold">
             Research Guides and Documents
           </p>
+        </div>
+        <div className="pt-40 flex flex-row justify-center gap-20">
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Button
+                variant="default"
+                className="hover:bg-gray-200 px-16 py-12 text-xl font-bold bg-white cursor-pointer"
+              >
+                Teacher's Guide
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-white border-white px-4 py-4">
+              <DropdownMenuGroup>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className="hover:bg-gray-200 text-xl px-20 bg-white cursor-pointer">
+                    Basic
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuPortal>
+                    <DropdownMenuSubContent className="bg-white border-white px-4 py-4">
+                      <DropdownMenuItem>
+                        <Link
+                          href="/basic-proposal-template"
+                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer"
+                        >
+                          Proposal Template
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <Link
+                          href="/basic-full-paper-template"
+                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer"
+                        >
+                          Full Paper Template
+                        </Link>
+                      </DropdownMenuItem>
+                    </DropdownMenuSubContent>
+                  </DropdownMenuPortal>
+                </DropdownMenuSub>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className="hover:bg-gray-200 text-xl px-20 bg-white cursor-pointer">
+                    Action
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuPortal>
+                    <DropdownMenuSubContent className="bg-white border-white px-4 py-4">
+                      <DropdownMenuItem>
+                        <Link
+                          href="/action-proposal-template"
+                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer"
+                        >
+                          Proposal Template
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <Link
+                          href="/action-full-paper-template"
+                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer"
+                        >
+                          Full Paper Template
+                        </Link>
+                      </DropdownMenuItem>
+                    </DropdownMenuSubContent>
+                  </DropdownMenuPortal>
+                </DropdownMenuSub>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Button
+                variant="default"
+                className="hover:bg-gray-200 px-16 py-12 text-xl font-bold bg-white cursor-pointer"
+              >
+                Student's Guide
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-white border-white px-4 py-4">
+              <DropdownMenuItem
+                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer"
+                asChild
+              >
+                <Link href="/qualitative">Qualitative</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer"
+                asChild
+              >
+                <Link href="/quantitative">Quantitative</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer"
+                asChild
+              >
+                <Link href="/business-plan">Business Plan</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <Button
+            variant="default"
+            className="hover:bg-gray-200 px-16 py-12 text-xl font-bold bg-white cursor-pointer"
+            asChild
+          >
+            <Link href="/documents">Documents</Link>
+          </Button>
         </div>
       </section>
     </main>
