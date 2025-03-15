@@ -23,8 +23,10 @@ export function Footer() {
       <a
         href="https://web.facebook.com/profile.php?id=100065310557489"
         target="_blank"
+        className="flex flex-row items-center gap-2"
       >
         <FaFacebook />
+        <span>Facebook</span>
       </a>
     </footer>
   );
