@@ -6,11 +6,7 @@ export const metadata: Metadata = {
 
 export default function BasicResearchProposalTemplate() {
   return (
-    <main
-      className="w-full h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/assets/background/variant1_bg.webp')" }}
-    >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+    <main className="w-full min-h-screen bg-black">
       <div className="py-32 relative flex flex-col gap-2 justify-center items-start w-full text-white px-10">
         <span className="flex justify-start text-left text-6xl font-bold mb-5">
           Basic Research Proposal Template
