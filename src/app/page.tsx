@@ -1,19 +1,141 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuPortal,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+
+interface DropdownItem {
+  label: string;
+  href?: string;
+  subItems?: DropdownItem[];
+}
+
+interface DropdownMenuProps {
+  title: string;
+  items: DropdownItem[];
+  isOpen: boolean;
+  setOpenMenu: (menu: string | null) => void;
+}
+
+const DropdownMenu: React.FC<DropdownMenuProps> = ({
+  title,
+  items,
+  isOpen,
+  setOpenMenu,
+}) => {
+  const [openSubmenu, setOpenSubmenu] = useState<number | null>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  // Close submenu when main menu closes
+  useEffect(() => {
+    if (!isOpen) {
+      setOpenSubmenu(null);
+    }
+  }, [isOpen]);
+
+  // Handle clicks outside the dropdown to close it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setOpenMenu(null);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, setOpenMenu]);
+
+  return (
+    <div ref={menuRef} className="relative">
+      <button
+        onClick={() => setOpenMenu(isOpen ? null : title)}
+        className="flex justify-center items-center gap-2 w-54 py-6 md:w-70 md:py-12 text-xl font-bold bg-white rounded-2xl cursor-pointer hover:bg-gray-200 shadow-md text-center"
+      >
+        {title}
+        <motion.span
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <ChevronDown size={20} />
+        </motion.span>
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute left-0 mt-2 w-54 md:w-70 bg-white shadow-lg border rounded-2xl z-50"
+          >
+            {items.map((item, index) => (
+              <div key={index} className="relative">
+                {item.subItems ? (
+                  <>
+                    <button
+                      onClick={() =>
+                        setOpenSubmenu(openSubmenu === index ? null : index)
+                      }
+                      className="w-full text-left px-6 py-3 hover:bg-gray-200 flex justify-between items-center rounded-2xl"
+                    >
+                      {item.label}
+                      <motion.span
+                        animate={{ rotate: openSubmenu === index ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <ChevronDown size={16} />
+                      </motion.span>
+                    </button>
+                    <AnimatePresence>
+                      {openSubmenu === index && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -5 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -5 }}
+                          transition={{ duration: 0.2 }}
+                          className="mt-1 bg-white shadow-md rounded-2xl"
+                        >
+                          {item.subItems.map((subItem, subIndex) => (
+                            <Link
+                              key={subIndex}
+                              href={subItem.href || "#"}
+                              className="block px-6 py-3 hover:bg-gray-200 rounded-2xl"
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </>
+                ) : (
+                  <Link
+                    href={item.href || "#"}
+                    className="block px-6 py-3 hover:bg-gray-200 rounded-2xl"
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 export default function home() {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   return (
     <main className="w-full h-full">
       {/* Home Section */}
@@ -123,7 +245,7 @@ export default function home() {
         className="w-full h-screen bg-cover bg-center"
         style={{
           backgroundImage: "url('/assets/background/variant1_bg.webp')",
-          backgroundColor: "rgba(0, 0, 0, 0.50)", // Transparent overlay
+          backgroundColor: "rgba(0, 0, 0, 0.50)",
           backgroundBlendMode: "overlay",
         }}
       >
@@ -133,111 +255,55 @@ export default function home() {
           </p>
         </div>
 
-        <div className="flex flex-col pt-20 gap-30 md:flex-row md:pt-70 md:gap-20 justify-center items-center">
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Button
-                variant="default"
-                className="hover:bg-gray-200 px-16 py-12 text-xl font-bold bg-white cursor-pointer"
-              >
-                Teacher's Guide
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-white border-white px-4 py-4">
-              <DropdownMenuGroup>
-                <DropdownMenuSub>
-                  <DropdownMenuSubTrigger className="hover:bg-gray-200 text-xl px-20 bg-white cursor-pointer transition-all duration-200 ease-in-out">
-                    Basic
-                  </DropdownMenuSubTrigger>
-                  <DropdownMenuPortal>
-                    <DropdownMenuSubContent className="bg-white border-white px-4 py-4">
-                      <DropdownMenuItem>
-                        <Link
-                          href="/basic-research-proposal-template"
-                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer transition-all duration-200 ease-in-out"
-                        >
-                          Proposal Template
-                        </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        <Link
-                          href="/completed-basic-research-template"
-                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer transition-all duration-200 ease-in-out"
-                        >
-                          Full Paper Template
-                        </Link>
-                      </DropdownMenuItem>
-                    </DropdownMenuSubContent>
-                  </DropdownMenuPortal>
-                </DropdownMenuSub>
-                <DropdownMenuSub>
-                  <DropdownMenuSubTrigger className="hover:bg-gray-200 text-xl px-20 bg-white cursor-pointer transition-all duration-200 ease-in-out">
-                    Action
-                  </DropdownMenuSubTrigger>
-                  <DropdownMenuPortal>
-                    <DropdownMenuSubContent className="bg-white border-white px-4 py-4">
-                      <DropdownMenuItem>
-                        <Link
-                          href="/action-research-proposal-template"
-                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer transition-all duration-200 ease-in-out"
-                        >
-                          Proposal Template
-                        </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        <Link
-                          href="/completed-action-research-template"
-                          className="hover:bg-gray-200 text-lg px-6 rounded bg-white cursor-pointer transition-all duration-200 ease-in-out"
-                        >
-                          Full Paper Template
-                        </Link>
-                      </DropdownMenuItem>
-                    </DropdownMenuSubContent>
-                  </DropdownMenuPortal>
-                </DropdownMenuSub>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+        <div className="flex flex-col pt-20 gap-20 md:flex-row md:pt-70 md:gap-20 justify-center items-center">
+          <DropdownMenu
+            title="Teacher's Guide"
+            items={[
+              {
+                label: "Basic",
+                subItems: [
+                  {
+                    label: "Proposal Template",
+                    href: "/basic-research-proposal-template",
+                  },
+                  {
+                    label: "Full Paper Template",
+                    href: "/completed-basic-research-template",
+                  },
+                ],
+              },
+              {
+                label: "Action",
+                subItems: [
+                  {
+                    label: "Proposal Template",
+                    href: "/action-research-proposal-template",
+                  },
+                  {
+                    label: "Full Paper Template",
+                    href: "/completed-action-research-template",
+                  },
+                ],
+              },
+            ]}
+            isOpen={openMenu === "Teacher's Guide"}
+            setOpenMenu={setOpenMenu}
+          />
 
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Button
-                variant="default"
-                className="hover:bg-gray-200 px-16 py-12 text-xl font-bold bg-white cursor-pointer"
-              >
-                Student's Guide
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-white border-white px-4 py-4">
-              <DropdownMenuItem
-                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer transition-all duration-200 ease-in-out"
-                asChild
-              >
-                <Link href="/qualitative">Qualitative</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer transition-all duration-200 ease-in-out"
-                asChild
-              >
-                <Link href="/quantitative">Quantitative</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="hover:bg-gray-200 text-xl px-16 bg-white cursor-pointer transition-all duration-200 ease-in-out"
-                asChild
-              >
-                <Link href="/business-plan">Business Plan</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <DropdownMenu
+            title="Student's Guide"
+            items={[
+              { label: "Qualitative", href: "/qualitative" },
+              { label: "Quantitative", href: "/quantitative" },
+              { label: "Business Plan", href: "/business-plan" },
+            ]}
+            isOpen={openMenu === "Student's Guide"}
+            setOpenMenu={setOpenMenu}
+          />
 
-          <Button
-            variant="default"
-            className="hover:bg-gray-200 w-70 py-12 text-xl font-bold bg-white cursor-pointer"
-            asChild
-          >
-            <p>Documents</p>
-            {/* <Link href="/documents">Documents</Link>*/}
-          </Button>
+          <button className="hover:bg-gray-200 w-54 py-6 md:w-70 md:py-12 text-xl font-bold bg-white rounded-2xl cursor-pointer shadow-md">
+            Documents
+          </button>
         </div>
       </section>
     </main>
