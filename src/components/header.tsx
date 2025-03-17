@@ -75,6 +75,7 @@ export function Header() {
           </div>
         </Link>
 
+        {/* Desktop Buttons*/}
         <div className="hidden md:flex flex-row gap-6 ml-auto text-lg">
           <button
             onClick={() => handleNavigation("home")}
@@ -114,7 +115,7 @@ export function Header() {
         </motion.button>
       </div>
 
-      {/* Button Menu*/}
+      {/* Mobile Buttons Menu*/}
       <div
         ref={menuRef}
         className={`absolute left-0 w-full bg-white shadow-xl ring-1 ring-gray-300 flex flex-col py-4 md:hidden transition-all duration-200 ease-out transform origin-top ${
