@@ -299,11 +299,12 @@ export default function home() {
             setOpenMenu={setOpenMenu}
           />
 
-          <button className="hover:bg-gray-200 w-54 py-6 md:w-70 md:py-12 text-xl font-bold bg-white rounded-2xl cursor-pointer shadow-md">
-            <Link href="/documents">
-              <p>Documents</p>
-            </Link>
-          </button>
+          <Link
+            href="/documents"
+            className="hover:bg-gray-200 w-54 py-6 md:w-70 md:py-12 text-xl text-center font-bold bg-white rounded-2xl cursor-pointer shadow-md"
+          >
+            Documents
+          </Link>
         </div>
       </section>
     </main>
