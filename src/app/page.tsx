@@ -81,7 +81,7 @@ export default function home() {
         <p className="pt-20 px-6 text-3xl md:pt-32 md:px-20 md:text-6xl text-black font-bold">
           The Project Proponents
         </p>
-        <div className="gap-10 py-10 md:gap-40 md:pt-10 flex flex-col md:flex-row justify-center">
+        <div className="gap-10 py-10 md:gap-40 md:pt-30 flex flex-col md:flex-row justify-center">
           <div className="gap-5 md:gap-10 flex flex-col items-center">
             <div className="w-[150px] md:w-[250px]">
               <Image
@@ -133,7 +133,7 @@ export default function home() {
           </p>
         </div>
 
-        <div className="flex flex-col pt-20 gap-30 md:flex-row md:pt-40 md:gap-20 justify-center items-center">
+        <div className="flex flex-col pt-20 gap-30 md:flex-row md:pt-70 md:gap-20 justify-center items-center">
           <DropdownMenu>
             <DropdownMenuTrigger>
               <Button
