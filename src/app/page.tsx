@@ -83,7 +83,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                       onClick={() =>
                         setOpenSubmenu(openSubmenu === index ? null : index)
                       }
-                      className="w-full text-left px-6 py-3 hover:bg-gray-200 flex justify-between items-center rounded-2xl"
+                      className="w-full text-left px-6 py-3 hover:bg-gray-200 flex justify-between items-center rounded-2xl cursor-pointer"
                     >
                       {item.label}
                       <motion.span
