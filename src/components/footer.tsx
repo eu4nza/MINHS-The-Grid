@@ -23,7 +23,7 @@ export function Footer() {
       <span className="flex flex-row items-center gap-2 text-xs md:text-base">
         Visit us on:
         <a
-          href="https://web.facebook.com/profile.php?id=100065310557489"
+          href="https://www.facebook.com/profile.php?id=100065310557489"
           target="_blank"
         >
           <Image
