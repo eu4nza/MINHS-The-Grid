@@ -22,6 +22,8 @@ export function Header() {
 
   const handleNavigation = (id: string) => {
     const newUrl = `/#${id}`;
+    setIsOpen(false);
+
     if (pathname !== "/") {
       router.push(newUrl);
     } else {
@@ -56,7 +58,7 @@ export function Header() {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-md md:shadow-lg px-6 md:px-10 py-3 z-50">
+    <header className="fixed top-0 left-0 w-full bg-white shadow-md px-4 md:px-8 py-3 z-50">
       <div className="max-w-screen flex justify-between items-center">
         <Link href="/" className="flex flex-row items-center gap-2">
           <Image
@@ -65,8 +67,9 @@ export function Header() {
             width={60}
             height={60}
             priority
+            className="w-10 h-10 md:w-16 md:h-16"
           />
-          <div className="flex flex-col text-lg font-bold">
+          <div className="flex flex-col font-bold text-sm md:text-lg">
             <p>Munting Ilog Integrated</p>
             <p>National High School</p>
           </div>
@@ -99,8 +102,9 @@ export function Header() {
           </button>
         </div>
 
+        {/* Mobile Button*/}
         <motion.button
-          className="md:hidden relative"
+          className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           initial={{ scale: 1 }}
           animate={{ scale: isOpen ? 1.2 : 1 }}
@@ -110,6 +114,7 @@ export function Header() {
         </motion.button>
       </div>
 
+      {/* Button Menu*/}
       <div
         ref={menuRef}
         className={`absolute left-0 w-full bg-white shadow-xl ring-1 ring-gray-300 flex flex-col py-4 md:hidden transition-all duration-200 ease-out transform origin-top ${

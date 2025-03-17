@@ -7,11 +7,11 @@ export const metadata: Metadata = {
 export default function BusinessPlan() {
   return (
     <main className="w-full min-h-screen bg-black">
-      <div className="py-32 relative flex flex-col gap-2 justify-center items-start w-full text-white px-10">
-        <span className="flex justify-start text-left text-6xl font-bold mb-5">
+      <div className="flex flex-col py-24 md:py-32 relative gap-2 justify-center items-start w-full text-white px-10">
+        <span className="flex justify-start text-left text-3xl md:text-6xl font-bold mb-5">
           Business Plan
         </span>
-        <div className="text-lg w-full bg-white text-black p-10 rounded-lg">
+        <div className="text-base p-6 md:text-lg md:p-12 w-full bg-white text-black rounded-lg">
           <div className="grid grid-cols-[1.5rem_auto] gap-x-5">
             <span className="text-right">I.</span>
             <span>Executive Summary</span>
