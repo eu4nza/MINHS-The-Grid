@@ -27,14 +27,12 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   const [openSubmenu, setOpenSubmenu] = useState<number | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  // Close submenu when main menu closes
   useEffect(() => {
     if (!isOpen) {
       setOpenSubmenu(null);
     }
   }, [isOpen]);
 
-  // Handle clicks outside the dropdown to close it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -302,7 +300,9 @@ export default function home() {
           />
 
           <button className="hover:bg-gray-200 w-54 py-6 md:w-70 md:py-12 text-xl font-bold bg-white rounded-2xl cursor-pointer shadow-md">
-            Documents
+            <Link href="/documents">
+              <p>Documents</p>
+            </Link>
           </button>
         </div>
       </section>
