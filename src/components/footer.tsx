@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="max-w-screen py-2 flex justify-between items-center px-8 md:px-24 relative">
+    <footer className="max-w-screen py-2 flex justify-between items-center inset-shadow-sm px-8 md:px-24 relative">
       <Link href="/" className="flex flex-row items-center gap-2">
         <Image
           src="/assets/logo/minhs_logo.webp"
