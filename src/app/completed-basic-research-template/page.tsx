@@ -11,7 +11,7 @@ export default function CompletedBasicResearchTemplate() {
         <span className="flex justify-start text-left text-3xl md:text-6xl font-bold mb-5">
           Completed Basic Research Template
         </span>
-        <div className="text-base p-6 md:text-lg md:p-12 w-full bg-white text-black border-black/5 border-1 shadow-2xl rounded-lg">
+        <div className="text-base p-6 md:text-lg md:p-12 w-full bg-white text-black border-black/5 border-1 shadow-2xl inset-shadow-sm rounded-lg">
           <div className="grid grid-cols-[1.5rem_auto] gap-x-5">
             <span className="text-right">I.</span>
             <span>
