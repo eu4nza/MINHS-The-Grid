@@ -21,23 +21,20 @@ export function Header() {
   };
 
   const handleNavigation = (id: string) => {
-    const newUrl = `/${id}`; // Remove the hash and directly use the route
+    const newUrl = `/${id}`;
 
     setIsOpen(false);
 
     if (pathname !== "/" && pathname !== newUrl) {
-      // Push the new route directly
       router.push(newUrl);
     } else {
-      // If on the same page, scroll to the section
       scrollToSection(id);
     }
   };
 
   useEffect(() => {
-    // No need for hash-based logic anymore, just scroll to the section if on the home page
     if (typeof window !== "undefined" && pathname === "/") {
-      const sectionId = pathname.split("/")[1]; // Assuming the first segment after `/` is the section ID
+      const sectionId = pathname.split("/")[1];
       if (sectionId) {
         scrollToSection(sectionId);
       }
