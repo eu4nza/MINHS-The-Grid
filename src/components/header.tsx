@@ -21,23 +21,28 @@ export function Header() {
   };
 
   const handleNavigation = (id: string) => {
-    const newUrl = `/#${id}`;
+    const newUrl = `/${id}`; // Remove the hash and directly use the route
+
     setIsOpen(false);
 
-    if (pathname !== "/") {
+    if (pathname !== "/" && pathname !== newUrl) {
+      // Push the new route directly
       router.push(newUrl);
     } else {
-      window.history.pushState(null, "", newUrl);
+      // If on the same page, scroll to the section
       scrollToSection(id);
     }
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hash) {
-      const id = window.location.hash.replace("#", "");
-      scrollToSection(id);
+    // No need for hash-based logic anymore, just scroll to the section if on the home page
+    if (typeof window !== "undefined" && pathname === "/") {
+      const sectionId = pathname.split("/")[1]; // Assuming the first segment after `/` is the section ID
+      if (sectionId) {
+        scrollToSection(sectionId);
+      }
     }
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
