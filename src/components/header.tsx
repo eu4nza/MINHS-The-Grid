@@ -17,16 +17,19 @@ export function Header() {
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       setIsOpen(false);
+
+      // Remove hash from URL after scrolling
+      history.replaceState(null, "", "/");
     }
   };
 
   const handleNavigation = (id: string) => {
-    const newUrl = `/${id}`;
+    const isOnHomePage = pathname === "/";
 
     setIsOpen(false);
 
-    if (pathname !== "/" && pathname !== newUrl) {
-      router.push(newUrl);
+    if (!isOnHomePage) {
+      router.push(`/#${id}`);
     } else {
       scrollToSection(id);
     }
@@ -34,8 +37,9 @@ export function Header() {
 
   useEffect(() => {
     if (typeof window !== "undefined" && pathname === "/") {
-      const sectionId = pathname.split("/")[1];
-      if (sectionId) {
+      const hash = window.location.hash;
+      if (hash) {
+        const sectionId = hash.replace("#", "");
         scrollToSection(sectionId);
       }
     }
