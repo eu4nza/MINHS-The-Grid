@@ -12,20 +12,21 @@ export function Header() {
   const pathname = usePathname();
   const router = useRouter();
 
+  const [hoverStyle, setHoverStyle] = useState({});
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const navRef = useRef<HTMLDivElement | null>(null);
+
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       setIsOpen(false);
-
-      // Remove hash from URL after scrolling
       history.replaceState(null, "", "/");
     }
   };
 
   const handleNavigation = (id: string) => {
     const isOnHomePage = pathname === "/";
-
     setIsOpen(false);
 
     if (!isOnHomePage) {
@@ -33,6 +34,27 @@ export function Header() {
     } else {
       scrollToSection(id);
     }
+  };
+
+  const handleHover = (e: React.MouseEvent) => {
+    const navRect = navRef.current?.getBoundingClientRect();
+    const target = e.currentTarget as HTMLElement;
+    const targetRect = target.getBoundingClientRect();
+
+    if (navRect) {
+      setHoverStyle({
+        left: targetRect.left - navRect.left,
+        top: targetRect.top - navRect.top,
+        width: targetRect.width,
+        height: targetRect.height,
+        opacity: 1,
+      });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHoverStyle((prev) => ({ ...prev, opacity: 0 }));
+    setHoveredIndex(null);
   };
 
   useEffect(() => {
@@ -63,6 +85,13 @@ export function Header() {
     };
   }, [isOpen]);
 
+  const navItems = [
+    { label: "Home", id: "home" },
+    { label: "About", id: "about" },
+    { label: "Our Team", id: "team" },
+    { label: "Resources", id: "resources" },
+  ];
+
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md px-4 md:px-8 py-3 z-50">
       <div className="max-w-screen flex justify-between items-center">
@@ -81,35 +110,43 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Desktop Buttons*/}
-        <div className="hidden md:flex flex-row gap-6 ml-auto text-lg">
-          <button
-            onClick={() => handleNavigation("home")}
-            className="hover:bg-gray-200 px-3 py-2 rounded transition-colors cursor-pointer"
-          >
-            Home
-          </button>
-          <button
-            onClick={() => handleNavigation("about")}
-            className="hover:bg-gray-200 px-3 py-2 rounded transition-colors cursor-pointer"
-          >
-            About
-          </button>
-          <button
-            onClick={() => handleNavigation("team")}
-            className="hover:bg-gray-200 px-3 py-2 rounded transition-colors cursor-pointer"
-          >
-            Our Team
-          </button>
-          <button
-            onClick={() => handleNavigation("resources")}
-            className="hover:bg-gray-200 px-3 py-2 rounded transition-colors cursor-pointer"
-          >
-            Resources
-          </button>
+        {/* Desktop Nav with Hover Background Effect */}
+        <div
+          className="hidden md:flex relative flex-row gap-6 ml-auto text-lg"
+          ref={navRef}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div
+            className="absolute bg-black/10 rounded-lg transition-all duration-300 pointer-events-none"
+            style={{
+              ...hoverStyle,
+              position: "absolute",
+              transitionProperty: "all",
+            }}
+          />
+          {navItems.map((item, index) => {
+            const isHovered = hoveredIndex === index;
+            const dimOthers = hoveredIndex !== null && !isHovered;
+
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleNavigation(item.id)}
+                onMouseEnter={(e) => {
+                  handleHover(e);
+                  setHoveredIndex(index);
+                }}
+                className={`px-3 py-2 rounded-lg transition-colors relative z-10 cursor-pointer ${
+                  dimOthers ? "text-black/50" : "text-black"
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </div>
 
-        {/* Mobile Button*/}
+        {/* Mobile Menu Toggle */}
         <motion.button
           className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
@@ -121,7 +158,7 @@ export function Header() {
         </motion.button>
       </div>
 
-      {/* Mobile Buttons Menu*/}
+      {/* Mobile Menu */}
       <div
         ref={menuRef}
         className={`absolute left-0 w-full bg-white shadow-xl ring-1 ring-gray-300 flex flex-col py-4 md:hidden transition-all duration-200 ease-out transform origin-top ${
@@ -131,30 +168,15 @@ export function Header() {
         }`}
         style={{ top: "100%", zIndex: -1 }}
       >
-        <button
-          onClick={() => handleNavigation("home")}
-          className="px-4 py-3 text-lg text-end"
-        >
-          Home
-        </button>
-        <button
-          onClick={() => handleNavigation("about")}
-          className="px-4 py-3 text-lg text-end"
-        >
-          About
-        </button>
-        <button
-          onClick={() => handleNavigation("team")}
-          className="px-4 py-3 text-lg text-end"
-        >
-          Our Team
-        </button>
-        <button
-          onClick={() => handleNavigation("resources")}
-          className="px-4 py-3 text-lg text-end"
-        >
-          Resources
-        </button>
+        {navItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => handleNavigation(item.id)}
+            className="px-4 py-3 text-lg text-end"
+          >
+            {item.label}
+          </button>
+        ))}
       </div>
     </header>
   );
