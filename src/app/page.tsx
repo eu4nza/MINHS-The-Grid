@@ -297,7 +297,6 @@ export default function home() {
             isOpen={openMenu === "Student's Guide"}
             setOpenMenu={setOpenMenu}
           />
-          ADD PPT
           <DropdownMenu
             title="Templates"
             items={[
