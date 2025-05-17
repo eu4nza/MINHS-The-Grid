@@ -18,20 +18,69 @@ interface DropdownMenuProps {
   setOpenMenu: (menu: string | null) => void;
 }
 
+const NestedMenu: React.FC<{
+  items: DropdownItem[];
+  level?: number;
+}> = ({ items, level = 0 }) => {
+  const [openSubmenu, setOpenSubmenu] = useState<number | null>(null);
+
+  return (
+    <div className={`ml-${level * 4} bg-white rounded-2xl`}>
+      {" "}
+      {/* indent for visual nesting */}
+      {items.map((item, index) => (
+        <div key={index} className="relative">
+          {item.subItems ? (
+            <>
+              <button
+                onClick={() =>
+                  setOpenSubmenu(openSubmenu === index ? null : index)
+                }
+                className="w-full text-left px-6 py-3 hover:bg-gray-200 flex justify-between items-center rounded-2xl"
+              >
+                {item.label}
+                <motion.span
+                  animate={{ rotate: openSubmenu === index ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ChevronDown size={16} />
+                </motion.span>
+              </button>
+              <AnimatePresence>
+                {openSubmenu === index && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -5 }}
+                    transition={{ duration: 0.2 }}
+                    className="ml-4"
+                  >
+                    <NestedMenu items={item.subItems} level={level + 1} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </>
+          ) : (
+            <Link
+              href={item.href || "#"}
+              className="block px-6 py-3 hover:bg-gray-200 rounded-2xl"
+            >
+              {item.label}
+            </Link>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
   title,
   items,
   isOpen,
   setOpenMenu,
 }) => {
-  const [openSubmenu, setOpenSubmenu] = useState<number | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!isOpen) {
-      setOpenSubmenu(null);
-    }
-  }, [isOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -75,56 +124,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
             transition={{ duration: 0.2 }}
             className="absolute left-0 mt-2 w-54 md:w-70 bg-white shadow-lg border rounded-2xl z-50"
           >
-            {items.map((item, index) => (
-              <div key={index} className="relative">
-                {item.subItems ? (
-                  <>
-                    <button
-                      onClick={() =>
-                        setOpenSubmenu(openSubmenu === index ? null : index)
-                      }
-                      className="w-full text-left px-6 py-3 hover:bg-gray-200 flex justify-between items-center rounded-2xl cursor-pointer"
-                    >
-                      {item.label}
-                      <motion.span
-                        animate={{ rotate: openSubmenu === index ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <ChevronDown size={16} />
-                      </motion.span>
-                    </button>
-                    <AnimatePresence>
-                      {openSubmenu === index && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -5 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -5 }}
-                          transition={{ duration: 0.2 }}
-                          className="mt-1 bg-white shadow-md rounded-2xl"
-                        >
-                          {item.subItems.map((subItem, subIndex) => (
-                            <Link
-                              key={subIndex}
-                              href={subItem.href || "#"}
-                              className="block px-6 py-3 hover:bg-gray-200 rounded-2xl"
-                            >
-                              {subItem.label}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </>
-                ) : (
-                  <Link
-                    href={item.href || "#"}
-                    className="block px-6 py-3 hover:bg-gray-200 rounded-2xl"
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </div>
-            ))}
+            <NestedMenu items={items} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -287,7 +287,6 @@ export default function home() {
             isOpen={openMenu === "Teacher's Guide"}
             setOpenMenu={setOpenMenu}
           />
-
           <DropdownMenu
             title="Student's Guide"
             items={[
@@ -298,13 +297,62 @@ export default function home() {
             isOpen={openMenu === "Student's Guide"}
             setOpenMenu={setOpenMenu}
           />
-
-          <Link
-            href="/documents"
-            className="hover:bg-gray-200 w-54 py-6 md:w-70 md:py-12 text-xl text-center font-bold bg-white rounded-2xl cursor-pointer shadow-md"
-          >
-            Documents
-          </Link>
+          ADD PPT
+          <DropdownMenu
+            title="Templates"
+            items={[
+              {
+                label: "Teacher",
+                subItems: [
+                  {
+                    label: "Basic",
+                    subItems: [
+                      {
+                        label: "Proposal Template (.docx)",
+                        href: "/templates/teacher/basic-proposal-template.word",
+                      },
+                      {
+                        label: "Full Paper Template (.docx)",
+                        href: "/templates/teacher/basic-full-paper-template.word",
+                      },
+                    ],
+                  },
+                  {
+                    label: "Action",
+                    subItems: [
+                      {
+                        label: "Proposal Template (.docx)",
+                        href: "/templates/teacher/action-proposal-template.word",
+                      },
+                      {
+                        label: "Full Paper Template (.docx)",
+                        href: "/templates/teacher/action-full-paper-template.word",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                label: "Student",
+                subItems: [
+                  {
+                    label: "Qualitative (.docx)",
+                    href: "/templates/student/qualitative.word",
+                  },
+                  {
+                    label: "Quantitative (.docx)",
+                    href: "/templates/student/quantitative.word",
+                  },
+                  {
+                    label: "Business Plan (.docx)",
+                    href: "/templates/student/business-plan.word",
+                  },
+                ],
+              },
+            ]}
+            isOpen={openMenu === "Templates"}
+            setOpenMenu={setOpenMenu}
+          />
         </div>
       </section>
     </main>
