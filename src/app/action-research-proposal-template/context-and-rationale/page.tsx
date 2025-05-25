@@ -17,7 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export default function ActionResearchProposalTemplate() {
+export default function ContextAndRationale() {
   return (
     <main className="w-full min-h-screen bg-white">
       <div className="flex flex-col py-24 md:py-32 relative gap-2 justify-center items-start w-full text-black px-10">
@@ -48,19 +48,17 @@ export default function ActionResearchProposalTemplate() {
             Action Research Proposal Template
           </p>
           <div className="flex items-center gap-2">
-            <Link href="/proposal/1">
-              <Button
-                variant="default"
-                className="bg-white hover:bg-black/10 rounded-lg transition-all duration-300 cursor-pointer"
-              >
-                Previous
-              </Button>
-            </Link>
+            <Button
+              variant="default"
+              className="bg-white hover:bg-black/10 shadow-2xl rounded-lg transition-all duration-300 cursor-not-allowed"
+            >
+              Previous
+            </Button>
 
             <Select
-              defaultValue="1"
+              defaultValue="context-and-rationale"
               onValueChange={(value) => {
-                window.location.href = `/proposal/${value}`;
+                window.location.href = `/action-research-proposal-template/${value}`;
               }}
             >
               <SelectTrigger className="bg-white hover:bg-black/10 transition-all duration-300 cursor-pointer shadow-xs border-0">
@@ -68,28 +66,88 @@ export default function ActionResearchProposalTemplate() {
               </SelectTrigger>
               <SelectContent className="bg-white border-0 cursor-pointer">
                 <SelectItem
-                  value="1"
+                  value="context-and-rationale"
                   className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
                 >
                   I. Context and Rationale
                 </SelectItem>
                 <SelectItem
-                  value="2"
+                  value="action-research-questions"
                   className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
                 >
                   II. Action Research Questions
                 </SelectItem>
                 <SelectItem
-                  value="3"
+                  value="proposed-innovation-intervention-and-strategy"
                   className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
                 >
-                  Page 3
+                  III. Proposed Innovation, Intervention, and Strategy
                 </SelectItem>
-                {/* Add more pages as needed */}
+                <SelectItem
+                  value="action-research-methods"
+                  className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
+                >
+                  IV. Action Research Methods
+                </SelectItem>
+                <SelectItem
+                  value="research-design"
+                  className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
+                >
+                  IV. a. Research Design
+                </SelectItem>
+                <SelectItem
+                  value="participants-and-sources-of-data"
+                  className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
+                >
+                  IV. b. Participants and/or Other Sources of Data and
+                  Information
+                </SelectItem>
+                <SelectItem
+                  value="data-gathering-method"
+                  className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
+                >
+                  IV. c. Data Gathering Method
+                </SelectItem>
+                <SelectItem
+                  value="data-analysis-plan"
+                  className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
+                >
+                  IV. d. Data Analysis Plan
+                </SelectItem>
+                <SelectItem
+                  value="references"
+                  className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
+                >
+                  V. References
+                </SelectItem>
+                <SelectItem
+                  value="annexes"
+                  className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
+                >
+                  VI. Annexes
+                </SelectItem>
+                <SelectItem
+                  value="research-instrument"
+                  className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
+                >
+                  VI. a. Research Instrument
+                </SelectItem>
+                <SelectItem
+                  value="sample-consent-form"
+                  className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
+                >
+                  VI. b. Sample Consent Form
+                </SelectItem>
+                <SelectItem
+                  value="other-documents"
+                  className="hover:bg-black/10 transition-all duration-300 cursor-pointer"
+                >
+                  VI. c. Other Documents as deemed relevant by the researcher(s)
+                </SelectItem>
               </SelectContent>
             </Select>
 
-            <Link href="/proposal/3">
+            <Link href="/action-research-proposal-template/action-research-questions">
               <Button
                 variant="default"
                 className="bg-white hover:bg-black/10 rounded-lg transition-all duration-300 cursor-pointer"
@@ -107,34 +165,26 @@ export default function ActionResearchProposalTemplate() {
               <p className="text-right">I.</p>
               <p>Context and Rationale</p>
             </div>
+            <div className="flex flex-row gap-1 items-center">
+              <p className="font-bold">Purpose:</p>
+              <p>
+                To describe the background, current situation, and reason for
+                conducting the study.
+              </p>
+            </div>
+            <p className="font-bold">What to include:</p>
             <p>
-              Reading comprehension is a fundamental skill that influences
-              students' success across all subject areas. In recent quarterly
-              assessments at XYZ Elementary School, 45% of Grade 5 students
-              scored below the proficiency level in reading comprehension.
-              Informal interviews with teachers revealed that students struggle
-              with inferring meaning, summarizing, and identifying main ideas in
-              texts.
+              ● Brief description of the educational setting (e.g., school,
+              grade level, subject).
+            </p>
+            <p>● Specific issue or problem observed in the classroom/school.</p>
+            <p>
+              ● Evidence supporting the need for research (e.g., test scores,
+              attendance, behavioral patterns).
             </p>
             <p>
-              Traditional instructional methods such as silent reading and
-              teacher-centered questioning seem insufficient in addressing these
-              comprehension gaps. Given this recurring concern, it is imperative
-              to explore alternative instructional strategies that actively
-              engage learners.
-            </p>
-            <p>
-              Reciprocal Teaching is a collaborative learning strategy where
-              students take turns assuming the role of teacher in small group
-              reading sessions. The strategy focuses on four key reading
-              strategies: predicting, questioning, clarifying, and summarizing.
-              This approach has been recognized to improve comprehension and
-              critical thinking in students.
-            </p>
-            <p>
-              This action research seeks to determine whether the implementation
-              of Reciprocal Teaching can significantly improve the reading
-              comprehension skills of Grade 5 students.
+              ● How the proposed research aligns with school or educational
+              goals.
             </p>
           </div>
         </div>

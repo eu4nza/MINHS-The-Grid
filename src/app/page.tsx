@@ -25,8 +25,7 @@ const NestedMenu: React.FC<{
   const [openSubmenu, setOpenSubmenu] = useState<number | null>(null);
 
   return (
-    <div className={`ml-${level * 4} bg-white rounded-2xl`}>
-      {" "}
+    <div className={`pl-${level * 4}`}>
       {/* indent for visual nesting */}
       {items.map((item, index) => (
         <div key={index} className="relative">
@@ -36,7 +35,7 @@ const NestedMenu: React.FC<{
                 onClick={() =>
                   setOpenSubmenu(openSubmenu === index ? null : index)
                 }
-                className="w-full text-left px-6 py-3 hover:bg-gray-200 flex justify-between items-center rounded-2xl"
+                className="w-full text-left px-6 py-3 hover:bg-gray-200 flex justify-between items-center rounded-2xl cursor-pointer"
               >
                 {item.label}
                 <motion.span
@@ -122,7 +121,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 mt-2 w-54 md:w-70 bg-white shadow-lg border rounded-2xl z-50"
+            className="absolute left-0 mt-2 max-h-[70vh] w-[300px] overflow-auto bg-white shadow-xl border rounded-2xl z-50 p-4"
           >
             <NestedMenu items={items} />
           </motion.div>
@@ -304,28 +303,64 @@ export default function home() {
                 label: "Teacher",
                 subItems: [
                   {
-                    label: "Basic",
+                    label: "PowerPoint",
                     subItems: [
                       {
-                        label: "Proposal Template (.docx)",
-                        href: "/templates/teacher/basic-proposal-template.word",
+                        label: "Basic",
+                        subItems: [
+                          {
+                            label: "Proposal Template (.pptx)",
+                            href: "/templates/teacher/powerpoint/basic-proposal.pptx",
+                          },
+                          {
+                            label: "Full Paper Template (.pptx)",
+                            href: "/templates/teacher/powerpoint/basic-full-paper.pptx",
+                          },
+                        ],
                       },
                       {
-                        label: "Full Paper Template (.docx)",
-                        href: "/templates/teacher/basic-full-paper-template.word",
+                        label: "Action",
+                        subItems: [
+                          {
+                            label: "Proposal Template (.pptx)",
+                            href: "/templates/teacher/powerpoint/action-proposal.pptx",
+                          },
+                          {
+                            label: "Full Paper Template (.pptx)",
+                            href: "/templates/teacher/powerpoint/action-full-paper.pptx",
+                          },
+                        ],
                       },
                     ],
                   },
                   {
-                    label: "Action",
+                    label: "Word",
                     subItems: [
                       {
-                        label: "Proposal Template (.docx)",
-                        href: "/templates/teacher/action-proposal-template.word",
+                        label: "Basic",
+                        subItems: [
+                          {
+                            label: "Proposal Template (.docx)",
+                            href: "/templates/teacher/word/basic-proposal.docx",
+                          },
+                          {
+                            label: "Full Paper Template (.docx)",
+                            href: "/templates/teacher/word/basic-full-paper.docx",
+                          },
+                        ],
                       },
                       {
-                        label: "Full Paper Template (.docx)",
-                        href: "/templates/teacher/action-full-paper-template.word",
+                        label: "Action",
+                        subItems: [
+                          {
+                            label: "Proposal Template (.docx)",
+                            href: "/templates/teacher/word/action-proposal.docx",
+                          },
+                          {
+                            label: "Full Paper Template (.docx)",
+                            href: "/templates/teacher/word/action-full-paper.docx",
+                          },
+                        ],
                       },
                     ],
                   },
