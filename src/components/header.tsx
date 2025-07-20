@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
   const router = useRouter();
@@ -15,13 +16,20 @@ export function Header() {
   const [hoverStyle, setHoverStyle] = useState({});
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const navRef = useRef<HTMLDivElement | null>(null);
+  const didManualScrollRef = useRef(false);
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
+      didManualScrollRef.current = true;
       section.scrollIntoView({ behavior: "smooth" });
       setIsOpen(false);
       history.replaceState(null, "", "/");
+
+      // Immediately hide header after scroll
+      setTimeout(() => {
+        setIsAtTop(false);
+      }, 400);
     }
   };
 
@@ -57,16 +65,34 @@ export function Header() {
     setHoveredIndex(null);
   };
 
+  // Handle hash-based scroll on page load
   useEffect(() => {
-    if (typeof window !== "undefined" && pathname === "/") {
+    if (typeof window !== "undefined") {
       const hash = window.location.hash;
       if (hash) {
         const sectionId = hash.replace("#", "");
-        scrollToSection(sectionId);
+        const scrollToHashSection = () => {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            didManualScrollRef.current = true;
+            const headerHeight =
+              document.querySelector("header")?.clientHeight || 0;
+            const sectionTop =
+              section.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+              top: sectionTop - headerHeight,
+              behavior: "smooth",
+            });
+            setIsAtTop(false);
+          }
+        };
+
+        setTimeout(scrollToHashSection, 300);
       }
     }
   }, [pathname]);
 
+  // Detect clicks outside the mobile menu
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -85,6 +111,57 @@ export function Header() {
     };
   }, [isOpen]);
 
+  // Show/hide header based on scroll
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Always show if at top
+      if (currentScrollY <= 1) {
+        setIsAtTop(true);
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      // Skip manual scroll once
+      if (didManualScrollRef.current) {
+        didManualScrollRef.current = false;
+        setIsAtTop(false);
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      // Scroll direction logic
+      if (currentScrollY < lastScrollY) {
+        setIsAtTop(true);
+      } else {
+        setIsAtTop(false);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // ✅ New: Detect browser back/forward and restore header if at top
+  useEffect(() => {
+    const handlePopState = () => {
+      setTimeout(() => {
+        if (window.scrollY <= 1) {
+          setIsAtTop(true);
+          didManualScrollRef.current = false;
+        }
+      }, 100);
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
   const navItems = [
     { label: "Home", id: "home" },
     { label: "About", id: "about" },
@@ -93,8 +170,13 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-md px-4 md:px-8 py-3 z-50">
-      <div className="max-w-screen flex justify-between items-center">
+    <motion.header
+      initial={{ y: 0 }}
+      animate={{ y: isAtTop ? 0 : -100 }}
+      transition={{ duration: 0.25, ease: "easeInOut" }}
+      className="fixed top-0 left-0 w-full bg-white shadow-md px-4 lg:px-8 py-3 z-50"
+    >
+      <div className="flex justify-between items-center">
         <Link href="/" className="flex flex-row items-center gap-2">
           <Image
             src="/assets/logo/minhs_logo.webp"
@@ -102,17 +184,16 @@ export function Header() {
             width={60}
             height={60}
             priority
-            className="w-10 h-10 md:w-16 md:h-16"
+            className="w-10 h-10 lg:w-16 lg:h-16"
           />
-          <div className="flex flex-col font-bold text-sm md:text-lg">
+          <div className="flex flex-col font-bold text-sm lg:text-lg">
             <p>Munting Ilog Integrated</p>
             <p>National High School</p>
           </div>
         </Link>
 
-        {/* Desktop Nav with Hover Background Effect */}
         <div
-          className="hidden md:flex relative flex-row gap-6 ml-auto text-lg"
+          className="hidden lg:flex relative flex-row gap-6 ml-auto text-lg"
           ref={navRef}
           onMouseLeave={handleMouseLeave}
         >
@@ -146,9 +227,8 @@ export function Header() {
           })}
         </div>
 
-        {/* Mobile Menu Toggle */}
         <motion.button
-          className="md:hidden"
+          className="lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
           initial={{ scale: 1 }}
           animate={{ scale: isOpen ? 1.2 : 1 }}
@@ -158,10 +238,9 @@ export function Header() {
         </motion.button>
       </div>
 
-      {/* Mobile Menu */}
       <div
         ref={menuRef}
-        className={`absolute left-0 w-full bg-white shadow-xl ring-1 ring-gray-300 flex flex-col py-4 md:hidden transition-all duration-200 ease-out transform origin-top ${
+        className={`absolute left-0 w-full bg-white shadow-xl ring-1 ring-gray-300 flex flex-col py-4 lg:hidden transition-all duration-200 ease-out transform origin-top ${
           isOpen
             ? "scale-y-100 opacity-100 pointer-events-auto"
             : "scale-y-95 opacity-0 pointer-events-none"
@@ -178,6 +257,6 @@ export function Header() {
           </button>
         ))}
       </div>
-    </header>
+    </motion.header>
   );
 }
