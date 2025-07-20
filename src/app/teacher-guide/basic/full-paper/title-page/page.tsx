@@ -68,7 +68,7 @@ export default function Page() {
                   <SelectValue placeholder="Page" />
                 </div>
               </SelectTrigger>
-              <SelectContent className="bg-white border-0 cursor-pointer">
+              <SelectContent className="bg-white border-black/5 cursor-pointer">
                 {[
                   ["I. Title Page", "title-page"],
                   ["II. Abstract", "abstract"],
