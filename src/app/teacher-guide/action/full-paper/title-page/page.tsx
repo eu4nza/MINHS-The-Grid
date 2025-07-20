@@ -68,12 +68,9 @@ export default function Page() {
                   <SelectValue placeholder="Page" />
                 </div>
               </SelectTrigger>
-              <SelectContent className="bg-white border-0 cursor-pointer">
+              <SelectContent className="bg-white border-black/5 cursor-pointer">
                 {[
-                  [
-                    "title-page",
-                    "I. Title Page (https://bit.ly/8thCC-templates)",
-                  ],
+                  ["title-page", "I. Title Page"],
                   ["abstract", "II. Abstract"],
                   ["acknowledgment", "III. Acknowledgment"],
                   ["context-and-rationale", "IV. Context and Rationale"],
@@ -169,6 +166,17 @@ export default function Page() {
                 <li>Research type (e.g., Completed Action Research)</li>
                 <li>Date submitted</li>
               </ul>
+            </div>
+
+            <div>
+              <p className="font-bold">Templates:</p>
+              <Link
+                href="https://bit.ly/8thCC-templates"
+                target="_blank"
+                className="hover:underline hover:text-blue-600"
+              >
+                https://bit.ly/8thCC-templates
+              </Link>
             </div>
           </div>
         </div>
