@@ -72,10 +72,7 @@ export default function Page() {
               </SelectTrigger>
               <SelectContent className="bg-white border-black/5 cursor-pointer">
                 {[
-                  [
-                    "title-page",
-                    "I. Title Page (https://bit.ly/8thCC-templates)",
-                  ],
+                  ["title-page", "I. Title Page"],
                   ["abstract", "II. Abstract"],
                   ["acknowledgment", "III. Acknowledgment"],
                   ["context-and-rationale", "IV. Context and Rationale"],
