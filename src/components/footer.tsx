@@ -4,23 +4,23 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="max-w-screen py-2 flex justify-between items-center inset-shadow-sm px-8 md:px-24 relative">
+    <footer className="py-2 flex justify-between items-center inset-shadow-sm px-8 lg:px-24">
       <Link href="/" className="flex flex-row items-center gap-2">
         <Image
           src="/assets/logo/minhs_logo.webp"
           alt="MINHS Logo"
           width={50}
           height={50}
-          className="w-8 h-8 md:w-12 md:h-12"
+          className="w-8 h-8 lg:w-12 lg:h-12"
           priority
         />
         <div className="flex flex-col font-bold">
-          <p className="text-xs md:text-base">Munting Ilog Integrated</p>
-          <p className="text-xs md:text-base">National High School</p>
+          <p className="text-xs lg:text-base">Munting Ilog Integrated</p>
+          <p className="text-xs lg:text-base">National High School</p>
         </div>
       </Link>
 
-      <span className="flex flex-row items-center gap-2 text-xs md:text-base">
+      <span className="flex flex-row items-center gap-2 text-xs lg:text-base">
         Visit us on:
         <a
           href="https://www.facebook.com/profile.php?id=100065310557489"
