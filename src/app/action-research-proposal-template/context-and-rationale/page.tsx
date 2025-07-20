@@ -165,27 +165,150 @@ export default function ContextAndRationale() {
               <p className="text-right">I.</p>
               <p>Context and Rationale</p>
             </div>
-            <div className="flex flex-row gap-1 items-center">
-              <p className="font-bold">Purpose:</p>
+
+            <div className="py-6 flex flex-col gap-2">
+              <div className="grid grid-cols-[1.5rem_auto] text-2xl">
+                <p className="font-bold">1.</p>
+                <p className="font-bold">Context of the Research</p>
+              </div>
+
               <p>
-                To describe the background, current situation, and reason for
-                conducting the study.
+                This part explains the background—where your research is
+                situated in the broader academic or real-world landscape.
               </p>
+
+              <p className="font-bold">What to include:</p>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">General background</p>
+                  <p>on the topic.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">Current state of knowledge</p>
+                  <p>or relevant literature (briefly).</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">Trends, issues, or gaps</p>
+                  <p>in the field.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">Why the topic is relevant now</p>
+                  <p>(social, scientific, or policy importance).</p>
+                </div>
+              </div>
+
+              <p className="font-bold">Example:</p>
+
+              <div className="grid grid-cols-[0.25rem_auto] items-start gap-4">
+                <div className="bg-gray-400 w-1 h-full"></div>
+                <p>
+                  In recent years, social media has become a dominant form of
+                  communication, especially among youth. Numerous studies have
+                  explored its influence on self-esteem and mental health.
+                  However, limited research has examined how platform-specific
+                  features—such as Instagram’s visual-centric design—shape body
+                  image perceptions among adolescents.
+                </p>
+              </div>
             </div>
-            <p className="font-bold">What to include:</p>
-            <p>
-              ● Brief description of the educational setting (e.g., school,
-              grade level, subject).
-            </p>
-            <p>● Specific issue or problem observed in the classroom/school.</p>
-            <p>
-              ● Evidence supporting the need for research (e.g., test scores,
-              attendance, behavioral patterns).
-            </p>
-            <p>
-              ● How the proposed research aligns with school or educational
-              goals.
-            </p>
+
+            <div className="py-6 flex flex-col gap-2">
+              <div className="grid grid-cols-[1.5rem_auto] text-2xl">
+                <p className="font-bold">2.</p>
+                <p className="font-bold">Rationale of the Research</p>
+              </div>
+
+              <p>
+                This explains why the study is necessary—your justification.
+              </p>
+
+              <p className="font-bold">What to include:</p>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p>The</p>
+                  <p className="font-bold">problem or gap</p>
+                  <p>your study addresses.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p>The</p>
+                  <p className="font-bold">importance or contribution</p>
+                  <p>of your research.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p>How your study will</p>
+                  <p className="font-bold">benefit</p>
+                  <p>the field or society.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p>If applicable, a</p>
+                  <p className="font-bold">brief statement of originality.</p>
+                </div>
+              </div>
+
+              <p className="font-bold">Example:</p>
+
+              <div className="grid grid-cols-[0.25rem_auto] items-start gap-4">
+                <div className="bg-gray-400 w-1 h-full"></div>
+                <p>
+                  This study addresses a critical gap by focusing on the
+                  psychological effects of Instagram usage, rather than social
+                  media in general. Understanding the link between visual
+                  content and body image can inform mental health interventions
+                  and media literacy programs for teenagers.
+                </p>
+              </div>
+            </div>
+
+            <div className="py-6 flex flex-col gap-2">
+              <p className="font-bold text-2xl">Putting It All Together</p>
+              <p>
+                When combined, the context and rationale might look like this:
+              </p>
+
+              <div className="grid grid-cols-[0.25rem_auto] items-start gap-4">
+                <div className="bg-gray-400 w-1 h-full"></div>
+                <p>
+                  Digital technology has transformed how individuals interact,
+                  with social media platforms now playing a central role in
+                  everyday communication. While extensive research exists on
+                  social media's effects on mental health, specific attention to
+                  visually-driven platforms like Instagram remains limited. As
+                  adolescents are particularly vulnerable to body image issues,
+                  this research investigates how Instagram’s visual nature
+                  influences their self-perception. By addressing this gap, the
+                  study aims to contribute to both academic understanding and
+                  practical approaches for youth mental health support.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

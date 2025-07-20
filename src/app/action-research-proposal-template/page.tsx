@@ -68,28 +68,28 @@ export default function arpt() {
             <div>
               <Link
                 href="/action-research-proposal-template/research-design"
-                className="col-p-2 grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
+                className="grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
               >
                 <p className="text-right">a.</p>
                 <p>Research Design</p>
               </Link>
               <Link
                 href="/action-research-proposal-template/participants-and-sources-of-data"
-                className="col-p-2 grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
+                className="grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
               >
                 <p className="text-right">b.</p>
                 <p>Participants and/or Other Sources of Data and Information</p>
               </Link>
               <Link
                 href="/action-research-proposal-template/data-gathering-method"
-                className="col-p-2 grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
+                className="grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
               >
                 <p className="text-right">c.</p>
                 <p>Data Gathering Method</p>
               </Link>
               <Link
                 href="/action-research-proposal-template/data-analysis-plan"
-                className="col-p-2 grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
+                className="grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
               >
                 <p className="text-right">d.</p>
                 <p>Data Analysis Plan</p>
@@ -112,21 +112,21 @@ export default function arpt() {
             <div>
               <Link
                 href="/action-research-proposal-template/research-instrument"
-                className="col-p-2 grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
+                className="grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
               >
                 <p className="text-right">a.</p>
                 <p>Research Instrument</p>
               </Link>
               <Link
                 href="/action-research-proposal-template/sample-consent-form"
-                className="col-p-2 grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
+                className="grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
               >
                 <p className="text-right">b.</p>
                 <p>Sample Consent Form</p>
               </Link>
               <Link
                 href="/action-research-proposal-template/other-documents"
-                className="col-p-2 grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
+                className="grid grid-cols-[2rem_auto] pl-8 gap-x-5 hover:underline hover:text-blue-600"
               >
                 <p className="text-right">c.</p>
                 <p>Other Documents as deemed relevant by the researcher(s)</p>

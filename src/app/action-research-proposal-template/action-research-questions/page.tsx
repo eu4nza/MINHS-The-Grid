@@ -167,49 +167,89 @@ export default function ActionResearchProposalTemplate() {
               <p className="text-right">II.</p>
               <p>Action Research Questions</p>
             </div>
-            <div className="flex flex-row gap-1 items-center">
-              <p className="font-bold">Purpose:</p>
-              <p>To define the focus of the research clearly.</p>
-            </div>
-            <p className="font-bold">What to include:</p>
-            <div className="grid grid-cols-[1.5rem_auto]">
-              <p>●</p>
-              <div className="flex flex-row gap-1 items-center">
-                <p className="font-bold">Main Research Question:</p>
-                <p>The central question your research aims to answer.</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-[1.5rem_auto]">
-              <p>●</p>
-              <div className="flex flex-row gap-1 items-center">
-                <p className="font-bold">Sub-questions:</p>
-                <p>
-                  Specific, measurable questions that support the main inquiry.
+
+            <div className="py-6 flex flex-col gap-2">
+              <div className="grid grid-cols-[1.5rem_auto] text-2xl">
+                <p className="font-bold">1.</p>
+                <p className="font-bold">
+                  What Makes a Good Action Research Question?
                 </p>
               </div>
-            </div>
-            <p className="italic">Example:</p>
-            <div className="grid grid-cols-[1.5rem_auto]">
-              <p>●</p>
-              <div className="flex flex-row gap-1 items-center">
-                <p className="font-bold">Main:</p>
-                <p>
-                  How does [intervention] affect student engagement in
-                  [subject/grade level]?
-                </p>
+
+              <p>A good Action Research Question should be:</p>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">Context-specific</p>
+                  <p>– rooted in your classroom, workplace, or community.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">Improvement-oriented</p>
+                  <p>– focused on change, enhancement, or reflection.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">Actionable and researchable</p>
+                  <p>– you can collect data to answer it.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">Open-ended</p>
+                  <p>– allows for exploration, not a simple yes/no.</p>
+                </div>
               </div>
             </div>
-            <div className="grid grid-cols-[1.5rem_auto]">
-              <p>●</p>
-              <p className="font-bold">Sub-questions:</p>
-            </div>
-            <div className="col-p-2 grid grid-cols-[2rem_auto] pl-8">
-              <p>1. </p>
-              <p>What was the level of engagement before the intervention?</p>
-            </div>
-            <div className="col-p-2 grid grid-cols-[2rem_auto] pl-8">
-              <p>2. </p>
-              <p>What changes are observed after implementing the strategy?</p>
+
+            <div className="py-6 flex flex-col gap-2">
+              <div className="grid grid-cols-[1.5rem_auto] text-2xl">
+                <p className="font-bold">1.</p>
+                <p className="font-bold">Common Structures/Formats</p>
+              </div>
+
+              <p>You can frame your action research questions like this:</p>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">Context-specific</p>
+                  <p>– rooted in your classroom, workplace, or community.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">Improvement-oriented</p>
+                  <p>– focused on change, enhancement, or reflection.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">Actionable and researchable</p>
+                  <p>– you can collect data to answer it.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[1.5rem_auto]">
+                <p>●</p>
+                <div className="flex flex-row gap-1">
+                  <p className="font-bold">Open-ended</p>
+                  <p>– allows for exploration, not a simple yes/no.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
