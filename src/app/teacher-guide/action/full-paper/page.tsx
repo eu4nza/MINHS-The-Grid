@@ -17,7 +17,7 @@ export default function Page() {
   const sections = [
     {
       number: "I.",
-      label: "Title Page (https://bit.ly/8thCC-templates)",
+      label: "Title Page",
       href: "/teacher-guide/action/full-paper/title-page",
     },
     {
