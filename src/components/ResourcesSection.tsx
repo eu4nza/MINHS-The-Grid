@@ -186,9 +186,15 @@ export default function ResourcesSection() {
           <DropdownMenu
             title="Student's Guide"
             items={[
-              { label: "Qualitative", href: "/qualitative" },
-              { label: "Quantitative", href: "/quantitative" },
-              { label: "Business Plan", href: "/business-plan" },
+              {
+                label: "Qualitative",
+                href: "/student-guide/qualitative-research",
+              },
+              {
+                label: "Quantitative",
+                href: "/student-guide/quantitative-research",
+              },
+              { label: "Business Plan", href: "/student-guide/business-plan" },
             ]}
             isOpen={openMenu === "Student's Guide"}
             setOpenMenu={setOpenMenu}
@@ -197,88 +203,12 @@ export default function ResourcesSection() {
             title="Templates"
             items={[
               {
-                label: "Teacher",
-                subItems: [
-                  {
-                    label: "PowerPoint",
-                    subItems: [
-                      {
-                        label: "Basic",
-                        subItems: [
-                          {
-                            label: "Proposal Template (.pptx)",
-                            href: "/templates/teacher/powerpoint/basic-proposal.pptx",
-                          },
-                          {
-                            label: "Full Paper Template (.pptx)",
-                            href: "/templates/teacher/powerpoint/basic-full-paper.pptx",
-                          },
-                        ],
-                      },
-                      {
-                        label: "Action",
-                        subItems: [
-                          {
-                            label: "Proposal Template (.pptx)",
-                            href: "/templates/teacher/powerpoint/action-proposal.pptx",
-                          },
-                          {
-                            label: "Full Paper Template (.pptx)",
-                            href: "/templates/teacher/powerpoint/action-full-paper.pptx",
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                  {
-                    label: "Word",
-                    subItems: [
-                      {
-                        label: "Basic",
-                        subItems: [
-                          {
-                            label: "Proposal Template (.docx)",
-                            href: "/templates/teacher/word/basic-proposal.docx",
-                          },
-                          {
-                            label: "Full Paper Template (.docx)",
-                            href: "/templates/teacher/word/basic-full-paper.docx",
-                          },
-                        ],
-                      },
-                      {
-                        label: "Action",
-                        subItems: [
-                          {
-                            label: "Proposal Template (.docx)",
-                            href: "/templates/teacher/word/action-proposal.docx",
-                          },
-                          {
-                            label: "Full Paper Template (.docx)",
-                            href: "/templates/teacher/word/action-full-paper.docx",
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                ],
+                label: "Basic Research Template (docx)",
+                href: "/templates/Basic_Research_Template.docx",
               },
               {
-                label: "Student",
-                subItems: [
-                  {
-                    label: "Qualitative (.docx)",
-                    href: "/templates/student/qualitative.word",
-                  },
-                  {
-                    label: "Quantitative (.docx)",
-                    href: "/templates/student/quantitative.word",
-                  },
-                  {
-                    label: "Business Plan (.docx)",
-                    href: "/templates/student/business-plan.word",
-                  },
-                ],
+                label: "Business Plan Template (docx)",
+                href: "/templates/Business_Plan_Template.docx",
               },
             ]}
             isOpen={openMenu === "Templates"}
