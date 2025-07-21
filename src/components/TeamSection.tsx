@@ -24,10 +24,9 @@ export default function AboutSection() {
                 alt="Christianne Roie A. Carabeo"
                 width={250}
                 height={250}
-                className="w-full h-auto"
               />
             </div>
-            <p className="text-base lg:text-lg bg-black px-5 py-2 text-white font-bold text-center">
+            <p className="w-[400px] text-base lg:text-lg bg-black px-5 py-2 text-white font-bold text-center">
               Christianne Roie A. Carabeo, MACDDS
               <br />
               Research Coordinator
@@ -40,10 +39,9 @@ export default function AboutSection() {
                 alt="Christianne Roie A. Carabeo"
                 width={250}
                 height={250}
-                className="w-full h-auto"
               />
             </div>
-            <p className="text-base lg:text-lg bg-black px-5 py-2 text-white font-bold text-center">
+            <p className="w-[400px] text-base lg:text-lg bg-black px-5 py-2 text-white font-bold text-center">
               Ivy Filipina R. Toledo, MBA
               <br />
               Entrepreneurship Coordinator
