@@ -100,7 +100,7 @@ export default function Page() {
                 <div key={section.label}>
                   {/* Updated layout: flex on parent to align label and chevron */}
                   <div
-                    className="flex items-center cursor-pointer hover:underline hover:text-blue-600 mb-2"
+                    className="flex w-max items-center cursor-pointer px-2 py-1 rounded-xl hover:bg-gray-200"
                     onClick={() => setDropdownOpen(!isDropdownOpen)}
                   >
                     <p className="flex-1">{section.label}</p>
