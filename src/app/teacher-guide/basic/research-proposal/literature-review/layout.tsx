@@ -4,10 +4,6 @@ export const metadata: Metadata = {
   title: "Basic Research Proposal - II. Literature Review",
 };
 
-export default function LoginLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function layout({ children }: { children: React.ReactNode }) {
   return <section>{children}</section>;
 }

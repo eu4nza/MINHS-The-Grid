@@ -4,10 +4,6 @@ export const metadata: Metadata = {
   title: "Quantitative Research - I. Abstract",
 };
 
-export default function LoginLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function layout({ children }: { children: React.ReactNode }) {
   return <section>{children}</section>;
 }

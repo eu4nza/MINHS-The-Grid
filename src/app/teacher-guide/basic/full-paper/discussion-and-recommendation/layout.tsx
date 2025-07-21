@@ -5,10 +5,6 @@ export const metadata: Metadata = {
     "Completed Basic Research Paper - IX. Discussion of Results and Recommendation",
 };
 
-export default function LoginLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function layout({ children }: { children: React.ReactNode }) {
   return <section>{children}</section>;
 }
