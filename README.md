@@ -1,3 +1,5 @@
+# NOTICE: THIS PROJECT WAS MADE IN EXCHANGE OF GRADES, THE WAY I MADE THIS WHOLE THING IS VERY IMPRACTICAL AND LAZY
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
