@@ -59,12 +59,14 @@ const NestedMenu: React.FC<{
               </AnimatePresence>
             </>
           ) : (
-            <Link
+            <a
               href={item.href || "#"}
+              target={item.href?.endsWith(".docx") ? "_blank" : "_self"}
+              rel={item.href?.endsWith(".docx") ? "noopener noreferrer" : ""}
               className="block px-6 py-3 hover:bg-gray-200 rounded-2xl"
             >
               {item.label}
-            </Link>
+            </a>
           )}
         </div>
       ))}
@@ -102,7 +104,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     <div ref={menuRef}>
       <button
         onClick={() => setOpenMenu(isOpen ? null : title)}
-        className="flex justify-center items-center gap-2 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-3xl px-6 py-6 lg:px-12 lg:py-12 text-xl font-bold bg-white rounded-2xl cursor-pointer hover:bg-gray-200 shadow-md text-center"
+        className="flex justify-center items-center gap-2 w-[300px] px-6 py-6 lg:px-12 lg:py-12 text-xl font-bold bg-white rounded-2xl cursor-pointer hover:bg-gray-200 shadow-md text-center"
       >
         {title}
         <motion.span
@@ -120,7 +122,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute mt-2 w-auto max-w-xs overflow-auto bg-white shadow-xl border rounded-2xl z-50 p-4"
+            className="absolute mt-2 w-[300px] overflow-auto bg-white shadow-xl border rounded-2xl z-50 p-4"
           >
             <NestedMenu items={items} />
           </motion.div>
@@ -132,6 +134,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
 export default function ResourcesSection() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+
   return (
     <section
       id="resources"
@@ -149,7 +152,7 @@ export default function ResourcesSection() {
           </p>
         </div>
 
-        <div className="flex flex-col pt-20 gap-20 lg:flex-row lg:pt-70 lg:gap-20 justify-center items-center">
+        <div className="flex flex-col pt-20 gap-10 lg:flex-row lg:pt-70 lg:gap-20 justify-center items-center">
           <DropdownMenu
             title="Teacher's Guide"
             items={[
@@ -212,6 +215,21 @@ export default function ResourcesSection() {
               },
             ]}
             isOpen={openMenu === "Templates"}
+            setOpenMenu={setOpenMenu}
+          />
+          <DropdownMenu
+            title="Sample Research"
+            items={[
+              {
+                label: "Teachers",
+                href: "/sample-research/teachers",
+              },
+              {
+                label: "Students",
+                href: "/sample-research/students",
+              },
+            ]}
+            isOpen={openMenu === "Sample Research"}
             setOpenMenu={setOpenMenu}
           />
         </div>
