@@ -247,7 +247,7 @@ export default function Page() {
             <div className="py-6 flex flex-col gap-6">
               {/* Section A - Results and Findings */}
               <section
-                id="results-findings"
+                id="results-and-findings"
                 className="transition-colors duration-500 py-5 px-5"
               >
                 <p className="text-xl font-bold">🔹 a. Results and Findings</p>
