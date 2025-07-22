@@ -24,7 +24,6 @@ const NestedMenu: React.FC<{
 
   return (
     <div className={`pl-${level * 4}`}>
-      {/* indent for visual nesting */}
       {items.map((item, index) => (
         <div key={index}>
           {item.subItems ? (
@@ -90,8 +89,6 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
@@ -137,21 +134,21 @@ export default function ResourcesSection() {
   return (
     <section
       id="resources"
-      className="h-screen bg-cover bg-center"
+      className={`min-h-screen bg-cover bg-center py-15 xl:py-20 transition-all ${
+        openMenu === "Sample Research" ? "pb-40" : ""
+      }`}
       style={{
         backgroundImage: "url('/assets/background/variant1_bg.webp')",
         backgroundColor: "rgba(0, 0, 0, 0.50)",
         backgroundBlendMode: "overlay",
       }}
     >
-      <div>
-        <div className="pt-20 px-6 xl:pt-32 xl:px-20">
-          <p className="text-3xl flex justify-center xl:text-6xl xl:justify-end text-white font-bold">
-            Research Guides and Documents
-          </p>
-        </div>
+      <div className="container mx-auto px-6 xl:px-20">
+        <p className="text-3xl text-white font-bold text-center xl:text-right xl:text-6xl mb-10">
+          Research Guides and Documents
+        </p>
 
-        <div className="flex flex-col pt-20 gap-10 xl:flex-row xl:pt-70 xl:gap-20 justify-center items-center">
+        <div className="flex flex-col gap-10 xl:flex-row xl:gap-20 justify-center items-center">
           <DropdownMenu
             title="Teacher's Guide"
             items={[

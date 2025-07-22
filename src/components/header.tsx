@@ -174,26 +174,26 @@ export function Header() {
       initial={{ y: 0 }}
       animate={{ y: isAtTop ? 0 : -100 }}
       transition={{ duration: 0.25, ease: "easeInOut" }}
-      className="fixed top-0 left-0 w-full bg-white shadow-md px-4 lg:px-8 py-3 z-50"
+      className="fixed top-0 left-0 w-full bg-white shadow-md px-4 xl:px-8 py-2 z-50"
     >
       <div className="flex justify-between items-center">
-        <Link href="/" className="flex flex-row items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/assets/logo/minhs_logo.webp"
             alt="MINHS Logo"
-            width={60}
-            height={60}
+            width={48}
+            height={48}
             priority
-            className="w-10 h-10 lg:w-16 lg:h-16"
+            className="w-8 h-8 xl:w-12 xl:h-12"
           />
-          <div className="flex flex-col font-bold text-sm lg:text-lg">
+          <div className="flex flex-col font-bold text-xs xl:text-base leading-tight">
             <p>Munting Ilog Integrated</p>
             <p>National High School</p>
           </div>
         </Link>
 
         <div
-          className="hidden xl:flex relative flex-row gap-6 ml-auto text-lg"
+          className="hidden xl:flex relative gap-4 text-base"
           ref={navRef}
           onMouseLeave={handleMouseLeave}
         >
@@ -217,7 +217,7 @@ export function Header() {
                   handleHover(e);
                   setHoveredIndex(index);
                 }}
-                className={`px-3 py-2 rounded-lg transition-colors relative z-10 cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg transition-colors relative z-10 cursor-pointer ${
                   dimOthers ? "text-black/50" : "text-black"
                 }`}
               >
@@ -228,19 +228,20 @@ export function Header() {
         </div>
 
         <motion.button
-          className="lg:hidden"
+          className="xl:hidden"
           onClick={() => setIsOpen(!isOpen)}
           initial={{ scale: 1 }}
           animate={{ scale: isOpen ? 1.2 : 1 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          {isOpen ? <X size={30} /> : <Menu size={30} />}
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
         </motion.button>
       </div>
 
+      {/* Mobile Dropdown */}
       <div
         ref={menuRef}
-        className={`absolute left-0 w-full bg-white shadow-xl ring-1 ring-gray-300 flex flex-col py-4 lg:hidden transition-all duration-200 ease-out transform origin-top ${
+        className={`absolute left-0 w-full bg-white shadow-xl ring-1 ring-gray-300 flex flex-col py-3 xl:hidden transition-all duration-200 ease-out transform origin-top ${
           isOpen
             ? "scale-y-100 opacity-100 pointer-events-auto"
             : "scale-y-95 opacity-0 pointer-events-none"
@@ -251,7 +252,7 @@ export function Header() {
           <button
             key={item.id}
             onClick={() => handleNavigation(item.id)}
-            className="px-4 py-3 text-lg text-end"
+            className="px-4 py-2 text-base text-end"
           >
             {item.label}
           </button>
