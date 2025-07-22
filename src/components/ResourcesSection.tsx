@@ -134,7 +134,7 @@ export default function ResourcesSection() {
   return (
     <section
       id="resources"
-      className={`min-h-screen bg-cover bg-center py-15 xl:py-20 transition-all ${
+      className={`h-screen bg-cover bg-center transition-all ${
         openMenu === "Sample Research" ? "pb-40" : ""
       }`}
       style={{
@@ -143,12 +143,16 @@ export default function ResourcesSection() {
         backgroundBlendMode: "overlay",
       }}
     >
-      <div className="container mx-auto px-6 xl:px-20">
-        <p className="text-3xl text-white font-bold text-center xl:text-right xl:text-6xl mb-10">
+      <div className="container mx-auto">
+        {/* Title stays at the top */}
+        <p className="text-3xl text-white font-bold text-center xl:text-right xl:text-6xl pt-10 xl:pt-20">
           Research Guides and Documents
         </p>
+      </div>
 
-        <div className="flex flex-col gap-10 xl:flex-row xl:gap-20 justify-center items-center">
+      {/* Centered dropdowns wrapper */}
+      <div className="flex justify-center items-center w-full h-[calc(100vh-10rem)]">
+        <div className="flex flex-col xl:flex-row gap-10 xl:gap-15 justify-center items-center">
           <DropdownMenu
             title="Teacher's Guide"
             items={[

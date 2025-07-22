@@ -9,7 +9,7 @@ export default function HomeSection() {
         backgroundPosition: "center",
       }}
     >
-      <div className="container mx-auto px-6 xl:px-20">
+      <div className="container px-6 xl:px-20">
         <p className="text-5xl xl:text-8xl text-white font-bold">The GRID</p>
         <p className="text-xl xl:text-3xl text-black">
           Guidelines for Research and Investigative Data

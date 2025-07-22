@@ -11,7 +11,7 @@ export default function AboutSection() {
         backgroundColor: "rgba(0, 0, 0, 0.25)",
       }}
     >
-      <div className="container mx-auto px-6 xl:px-20">
+      <div className="px-6 xl:px-20">
         <div className="w-full flex justify-end">
           <div className="max-w-2xl">
             <p className="text-5xl xl:text-8xl text-white font-bold">
