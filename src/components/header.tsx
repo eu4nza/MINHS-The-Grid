@@ -193,7 +193,7 @@ export function Header() {
         </Link>
 
         <div
-          className="hidden lg:flex relative flex-row gap-6 ml-auto text-lg"
+          className="hidden xl:flex relative flex-row gap-6 ml-auto text-lg"
           ref={navRef}
           onMouseLeave={handleMouseLeave}
         >

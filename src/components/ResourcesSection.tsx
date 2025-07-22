@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -104,7 +103,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     <div ref={menuRef}>
       <button
         onClick={() => setOpenMenu(isOpen ? null : title)}
-        className="flex justify-center items-center gap-2 w-[300px] px-6 py-6 lg:px-12 lg:py-12 text-xl font-bold bg-white rounded-2xl cursor-pointer hover:bg-gray-200 shadow-md text-center"
+        className="flex justify-center items-center gap-2 w-[300px] px-6 py-6 xl:px-12 xl:py-12 text-xl font-bold bg-white rounded-2xl cursor-pointer hover:bg-gray-200 shadow-md text-center"
       >
         {title}
         <motion.span
@@ -138,21 +137,21 @@ export default function ResourcesSection() {
   return (
     <section
       id="resources"
-      className="bg-cover bg-center"
+      className="h-screen bg-cover bg-center"
       style={{
         backgroundImage: "url('/assets/background/variant1_bg.webp')",
         backgroundColor: "rgba(0, 0, 0, 0.50)",
         backgroundBlendMode: "overlay",
       }}
     >
-      <div className="h-screen">
-        <div className="pt-20 px-6 lg:pt-32 lg:px-20">
-          <p className="text-3xl flex justify-center lg:text-6xl lg:justify-end text-white font-bold">
+      <div>
+        <div className="pt-20 px-6 xl:pt-32 xl:px-20">
+          <p className="text-3xl flex justify-center xl:text-6xl xl:justify-end text-white font-bold">
             Research Guides and Documents
           </p>
         </div>
 
-        <div className="flex flex-col pt-20 gap-10 lg:flex-row lg:pt-70 lg:gap-20 justify-center items-center">
+        <div className="flex flex-col pt-20 gap-10 xl:flex-row xl:pt-70 xl:gap-20 justify-center items-center">
           <DropdownMenu
             title="Teacher's Guide"
             items={[
