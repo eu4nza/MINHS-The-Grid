@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/breadcrumb";
 
 export default function Page() {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
   const sections = [
     {
       label: "ABM",
@@ -115,16 +117,21 @@ export default function Page() {
         </p>
 
         <div className="text-base p-6 lg:text-lg lg:p-12 w-full bg-white text-black border-black/5 border-1 shadow-2xl inset-shadow-sm rounded-lg">
-          <div>
+          <div className="flex flex-col gap-1">
             {sections.map((section) => {
-              const [isDropdownOpen, setDropdownOpen] = useState(false);
+              const isDropdownOpen = openDropdown === section.label;
 
               return (
                 <div key={section.label}>
-                  {/* Updated layout: flex on parent to align label and chevron */}
                   <div
-                    className="flex w-max items-center cursor-pointer px-2 py-1 rounded-xl hover:bg-gray-200"
-                    onClick={() => setDropdownOpen(!isDropdownOpen)}
+                    className={`flex w-max items-center cursor-pointer px-2 py-1 rounded-xl transition-all duration-300 ${
+                      isDropdownOpen ? "bg-gray-200" : "hover:bg-gray-200"
+                    }`}
+                    onClick={() =>
+                      setOpenDropdown((prev) =>
+                        prev === section.label ? null : section.label
+                      )
+                    }
                   >
                     <p className="flex-1">{section.label}</p>
                     <motion.div
@@ -135,14 +142,12 @@ export default function Page() {
                     </motion.div>
                   </div>
 
-                  {/* Smooth open/close animation for dropdown */}
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{
                       opacity: isDropdownOpen ? 1 : 0,
                       height: isDropdownOpen ? "auto" : 0,
                     }}
-                    exit={{ opacity: 0, height: 0 }}
                     transition={{
                       opacity: { duration: 0.3, ease: "easeInOut" },
                       height: { duration: 0.3, ease: "easeInOut" },
