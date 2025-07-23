@@ -15,24 +15,25 @@ export const metadata: Metadata = {
 export default function Page() {
   const sections = [
     {
-      label: "Aguilar_East 2.docx",
-      href: "/sample-research/teachers/Aguilar_East_2.docx",
+      label: "Brain Based Learning Vocabulary Recall and Retention.pdf",
+      href: "/sample-research/teachers/brain_based_learning_vocabulary_recall_and_retention.pdf",
     },
     {
-      label: "Carabeo_East.pdf",
-      href: "/sample-research/teachers/Carabeo_East.pdf",
+      label: "ESL Experiences Vietnamese Chinese Students DepEd Cavite.pdf",
+      href: "/sample-research/teachers/esl_experiences_vietnamese_chinese_students_deped_cavite.pdf",
     },
     {
-      label: "CARABEO_Understanding ESL Experiences.docx",
-      href: "/sample-research/teachers/CARABEO_Understanding_ESL_Experiences.docx",
+      label: "Faculty Perception Online Teaching Competency.pdf",
+      href: "/sample-research/teachers/faculty_perception_online_teaching_competency.pdf",
     },
     {
-      label: "Content Analysis of Research Abstracts from Region IV.docx",
-      href: "/sample-research/teachers/Content_Analysis_of_Research_Abstracts_from_Region_IV.docx",
+      label:
+        "Literacy Strategies Across Curriculum Faculty Development Plan.pdf",
+      href: "/sample-research/teachers/literacy_strategies_across_curriculum_faculty_development_plan.pdf",
     },
     {
-      label: "Diquit_CID.docx",
-      href: "/sample-research/teachers/Diquit_CID.docx",
+      label: "Research Abstracts Region IV-A Mapping DepEd Research Agenda.pdf",
+      href: "/sample-research/teachers/research_abstracts_region_iv_a_mapping_deped_research_agenda.pdf",
     },
   ];
 

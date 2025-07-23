@@ -19,16 +19,16 @@ export default function Page() {
       label: "ABM",
       dropdown: [
         {
-          label: "Abraham et al.pdf",
-          href: "/sample-research/students/abm/Abraham_et_al.pdf",
+          label: "Breaking the Mold Young Entrepreneurs Startup Hurdles.pdf",
+          href: "/sample-research/students/abm/breaking_the_mold_young_entrepreneurs_startup_hurdles.pdf",
         },
         {
-          label: "Delica et al.pdf",
-          href: "/sample-research/students/abm/Delica_et_al.pdf",
+          label: "Generational Shifts Family Business Strategies.pdf",
+          href: "/sample-research/students/abm/generational_shifts_family_business_strategies.pdf",
         },
         {
-          label: "Ripalda, et al.pdf",
-          href: "/sample-research/students/abm/Ripalda,_et_al.pdf",
+          label: "Social Media Marketing Effect on SMEs.pdf",
+          href: "/sample-research/students/abm/social_media_marketing_effect_on_smes.pdf",
         },
       ],
     },
@@ -36,20 +36,22 @@ export default function Page() {
       label: "HUMSS1",
       dropdown: [
         {
-          label: "Baldon et al.pdf",
-          href: "/sample-research/students/humss1/Baldon_et_al.pdf",
+          label: "Lifeline or Burden Senior Citizens Government Support.pdf",
+          href: "/sample-research/students/humss1/lifeline_or_burden_senior_citizens_government_support.pdf",
         },
         {
-          label: "Barrameda et al.pdf",
-          href: "/sample-research/students/humss1/Barrameda_et_al.pdf",
+          label: "Parenting in Digital Age Gen X vs Millennials.pdf",
+          href: "/sample-research/students/humss1/parenting_in_digital_age_gen_x_vs_millennials.pdf",
         },
         {
-          label: "Calibozo, et al.pdf",
-          href: "/sample-research/students/humss1/Calibozo,_et_al.pdf",
+          label:
+            "Resilience in Single Parenting Challenges in Child Raising.pdf",
+          href: "/sample-research/students/humss1/resilience_in_single_parenting_challenges_in_child_raising.pdf",
         },
         {
-          label: "Del Mundo et.al.pdf",
-          href: "/sample-research/students/humss1/Del_Mundo_et.al.pdf",
+          label:
+            "Voices from the Streets Police Reflections Young Offenders.pdf",
+          href: "/sample-research/students/humss1/voices_from_the_streets_police_reflections_young_offenders.pdf",
         },
       ],
     },
@@ -57,16 +59,16 @@ export default function Page() {
       label: "HUMSS3",
       dropdown: [
         {
-          label: "Paglinawan, et al.docx",
-          href: "/sample-research/students/humss3/Paglinawan,_et_al.docx",
+          label: "Balancing Books and Work Experiences of Working Students.pdf",
+          href: "/sample-research/students/humss3/balancing_books_and_work_experiences_of_working_students.pdf",
         },
         {
-          label: "Paaradero, et al.pdf",
-          href: "/sample-research/students/humss3/Paradero,_et_al.pdf",
+          label: "Beyond Survival Social Dynamics Youths in Foster Care.pdf",
+          href: "/sample-research/students/humss3/beyond_survival_social_dynamics_youths_in_foster_care.pdf",
         },
         {
-          label: "Vertudez, et al.pdf",
-          href: "/sample-research/students/humss3/Vertudez,_et_al.pdf",
+          label: "Conflict Resolution Gender Lens Womens Contributions.pdf",
+          href: "/sample-research/students/humss3/conflict_resolution_gender_lens_womens_contributions.pdf",
         },
       ],
     },
@@ -74,20 +76,22 @@ export default function Page() {
       label: "STEM",
       dropdown: [
         {
-          label: "Cerbito, et al.pdf",
-          href: "/sample-research/students/stem/Cerbito,_et_al.pdf",
+          label:
+            "Ashes to Action Volcanic Impact Community Disaster Management.pdf",
+          href: "/sample-research/students/stem/ashes_to_action_volcanic_impact_community_disaster_management.pdf",
         },
         {
-          label: "De guia, et al.pdf",
-          href: "/sample-research/students/stem/De guia,_et_al.pdf",
+          label: "Beyond the Counter Pharmacists Insights OTC Medication.pdf",
+          href: "/sample-research/students/stem/beyond_the_counter_pharmacists_insights_otc_medication.pdf",
         },
         {
-          label: "Enriquez, et al.pd",
-          href: "/sample-research/students/stem/Enriquez,_et_al.pdf",
+          label:
+            "Navigating Digital Risks Technology Integration Factory Workers.pdf",
+          href: "/sample-research/students/stem/navigating_digital_risks_technology_integration_factory_workers.pdf",
         },
         {
-          label: "Paglinawan, et al.pdf",
-          href: "/sample-research/students/stem/Paglinawan,_et_al.pdf",
+          label: "Parental Dilemma COVID-19 Boost Revaccination Attitudes.pdf",
+          href: "/sample-research/students/stem/parental_dilemma_covid19_boost_revaccination_attitudes.pdf",
         },
       ],
     },
