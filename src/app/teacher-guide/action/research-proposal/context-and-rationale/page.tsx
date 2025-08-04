@@ -136,7 +136,7 @@ export default function Page() {
         {/* Main content */}
         <div className="text-base p-6 xl:text-lg xl:p-12 w-full bg-white text-black border border-black/5 shadow-2xl rounded-lg">
           <div className="flex flex-col gap-2">
-            <div className="grid grid-cols-[1rem_auto] gap-x-5 text-2xl xl:text-4xl font-bold">
+            <div className="grid grid-cols-[0.5rem_auto] gap-x-5 text-2xl xl:text-4xl font-bold">
               <p className="text-right">I.</p>
               <p>Context and Rationale</p>
             </div>
