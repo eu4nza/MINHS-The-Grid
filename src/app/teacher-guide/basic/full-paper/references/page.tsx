@@ -38,9 +38,7 @@ export default function Page() {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>
-                IX. Discussion of Results and Recommendation
-              </BreadcrumbPage>
+              <BreadcrumbPage>XI. References</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
