@@ -32,7 +32,7 @@ export default function AboutSection() {
                   height={250}
                 />
               </div>
-              <p className="w-full max-w-xs text-base xl:text-lg bg-black px-5 py-2 text-white font-bold text-center">
+              <p className="w-full text-base xl:text-lg bg-black px-5 py-2 text-white font-bold text-center">
                 Christianne Roie A. Carabeo, MACDDS
                 <br />
                 Research Coordinator
@@ -49,7 +49,7 @@ export default function AboutSection() {
                   height={250}
                 />
               </div>
-              <p className="w-full max-w-xs text-base xl:text-lg bg-black px-5 py-2 text-white font-bold text-center">
+              <p className="w-full text-base xl:text-lg bg-black px-5 py-2 text-white font-bold text-center">
                 Ivy Filipina R. Toledo, MBA
                 <br />
                 Entrepreneurship Coordinator
