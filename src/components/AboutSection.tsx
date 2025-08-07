@@ -28,6 +28,18 @@ export default function AboutSection() {
               Education in strengthening research and innovation among academic
               institutions.
             </p>
+            <p className="text-base xl:text-xl text-white text-justify pt-4">
+              This technology-based innovation and research dashboard is an
+              invaluable tool for guiding students and teachers through the
+              often complex and overwhelming process of conducting research. By
+              providing a centralized platform with easy access to essential
+              resources such as writing guides, templates and documents,
+              students and teachers of MIINHS can efficiently navigate their way
+              through the vast sea of information available. This dashboard not
+              only streamlines the research process but also serves as a
+              valuable learning aid by helping the school community to develop
+              research projects.
+            </p>
           </div>
         </div>
       </div>
